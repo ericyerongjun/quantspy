@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantspy"
+version = "0.1.0"
+authors = [
+    {
+        name = "Eric YE Rongjun",
+        email = "yerongjun03@gmail.com"
+    }
+]
+description = "A Python library for quantitative finance"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "statsmodels",
+    "cvxpy",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
