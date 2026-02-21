@@ -2,19 +2,8 @@ import numpy as np
 from scipy.stats import norm
 from typing import Union, Optional
 
-class BlackScholesCall:
-    
-# Black Scholes European Call Option Pricing (Allowing for Vectorized Inputs and Optional Inputs)
-    def call_delta(self,
-                   asset_price: Union[float, np.ndarray],
-                   asset_volatility: Union[float, np.ndarray],
-                   strike_price:Union[float, np.ndarray],
-                   time_to_expiration:Union[float, np.ndarray],
-                   risk_free_rate:Union[float, np.ndarray],
-                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
-                   ) -> Union[float, np.ndarray]:
         
-        """
+"""
         Parameters explanation (Annualized):
         asset_price: Current price of the underlying asset (S)
         asset_volatility: Volatility of the underlying asset (σ)
@@ -25,6 +14,38 @@ class BlackScholesCall:
         """
         
         # Convert inputs to numpy arrays for vectorized operations and ensure consistent shapes (Set their data type to float64 for numerical stability)
+
+class BlackScholesCall:
+    
+# Black Scholes European Call Option Pricing (Allowing for Vectorized Inputs and Optional Inputs)
+
+
+    def call_delta(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    
+    def call_gamma(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+
         S = np.asarray(asset_price, dtype=np.float64)
         sigma = np.asarray(asset_volatility, dtype=np.float64)
         K = np.asarray(strike_price, dtype=np.float64)
@@ -32,3 +53,208 @@ class BlackScholesCall:
         r = np.asarray(risk_free_rate, dtype=np.float64)
         q = np.asarray(dividend_yield, dtype=np.float64)
         
+        
+    def call_vega(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+        
+    
+    def call_theta(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    
+    def call_rho(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    
+    def call_price(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    
+    def __init__(self,
+                 asset_price: Union[float, np.ndarray],
+                 asset_volatility: Union[float, np.ndarray],
+                 strike_price:Union[float, np.ndarray],
+                 time_to_expiration:Union[float, np.ndarray],
+                 risk_free_rate:Union[float, np.ndarray],
+                 dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                 ):
+        
+        self.asset_price = asset_price
+        self.asset_volatility = asset_volatility
+        self.strike_price = strike_price
+        self.time_to_expiration = time_to_expiration
+        self.risk_free_rate = risk_free_rate
+        self.dividend_yield = dividend_yield
+        self.price = self.call_price(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.delta = self.call_delta(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.gamma = self.call_gamma(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.vega = self.call_vega(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.theta = self.call_theta(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.rho = self.call_rho(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+
+
+class BlackScholesPut:
+    
+    def put_delta(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def put_gamma(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def put_vega(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def put_theta(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def put_rho(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def put_price(self,
+                   asset_price: Union[float, np.ndarray],
+                   asset_volatility: Union[float, np.ndarray],
+                   strike_price:Union[float, np.ndarray],
+                   time_to_expiration:Union[float, np.ndarray],
+                   risk_free_rate:Union[float, np.ndarray],
+                   dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                   ) -> Union[float, np.ndarray]:
+        S = np.asarray(asset_price, dtype=np.float64)
+        sigma = np.asarray(asset_volatility, dtype=np.float64)
+        K = np.asarray(strike_price, dtype=np.float64)
+        T = np.asarray(time_to_expiration, dtype=np.float64)
+        r = np.asarray(risk_free_rate, dtype=np.float64)
+        q = np.asarray(dividend_yield, dtype=np.float64)
+    
+    def __init__(self,
+                 asset_price: Union[float, np.ndarray],
+                 asset_volatility: Union[float, np.ndarray],
+                 strike_price:Union[float, np.ndarray],
+                 time_to_expiration:Union[float, np.ndarray],
+                 risk_free_rate:Union[float, np.ndarray],
+                 dividend_yield: Optional[Union[float, np.ndarray]] = 0.0
+                 ):
+        
+        self.asset_price = asset_price
+        self.asset_volatility = asset_volatility
+        self.strike_price = strike_price
+        self.time_to_expiration = time_to_expiration
+        self.risk_free_rate = risk_free_rate
+        self.dividend_yield = dividend_yield
+        self.price = self.put_price(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.delta = self.put_delta(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.gamma = self.put_gamma(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.vega = self.put_vega(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.theta = self.put_theta(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
+        self.rho = self.put_rho(asset_price, asset_volatility, strike_price, time_to_expiration, risk_free_rate, dividend_yield)
